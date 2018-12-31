@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/DACUS1995/RabbitMQ-Performance-Analysis/issues"
   },
-  "homepage": "https://github.com/DACUS1995/RabbitMQ-Performance-Analysis#readme"
+  "homepage": "https://github.com/DACUS1995/RabbitMQ-Performance-Analysis#readme",
+  "dependencies": {
+    "dotenv": "^6.2.0"
+  }
 }

@@ -3,13 +3,13 @@
 
 class Main
 {
-    constructor()
-    {}
+	constructor()
+	{}
 
-    static async run()
-    {
+	static async run()
+	{
 
-    }
+	}
 }
 
 process.on(
@@ -33,5 +33,5 @@ process.on(
 )
 
 Main.run()
-    .catch(console.error)
+	.catch(console.error)
 
