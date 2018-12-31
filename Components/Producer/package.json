@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/DACUS1995/RabbitMQ-Performance-Analysis#readme",
   "dependencies": {
+    "amqplib": "^0.5.3",
     "dotenv": "^6.2.0"
   }
 }

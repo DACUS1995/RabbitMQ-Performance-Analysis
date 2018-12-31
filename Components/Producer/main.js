@@ -1,6 +1,8 @@
 "use strict"
 //@ts-check
 
+const Publisher = require("./Publisher");
+
 class Main
 {
 	constructor()
@@ -8,7 +10,8 @@ class Main
 
 	static async run()
 	{
-
+		const publisher = new Publisher();
+		publisher.start();
 	}
 }
 
