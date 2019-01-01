@@ -1,6 +1,7 @@
 "use strict"
 //@ts-check
 
+require('dotenv').config()
 const Publisher = require("./Publisher");
 
 class Main

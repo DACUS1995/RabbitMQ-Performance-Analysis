@@ -19,7 +19,7 @@ class Publisher
     async start(objConfig = {})
     {
         const {
-            strAddress = "amqp://localhost",
+            strAddress = `amqp://${process.env.host}` || "amqp://localhost",
             strQueueName = "q",
         } = objConfig;
 
