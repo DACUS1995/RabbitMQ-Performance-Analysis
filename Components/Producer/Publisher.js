@@ -18,10 +18,26 @@ class Publisher
      */
     async start(objConfig = {})
     {
-        const {
-            strAddress = `amqp://${process.env.host}` || "amqp://localhost",
+        let {
+            strAddress = `amqp://${process.env.USERNAME_MQ}:${process.env.PASS_MQ}@${process.env.HOST_MQ}`,
             strQueueName = "q",
         } = objConfig;
+
+        if(strAddress === undefined)
+        {
+            if(
+                process.env.USERNAME_MQ
+                || process.env.PASS_MQ
+                || process.env.HOST_MQ
+            )
+            {
+                strAddress = `amqp://${process.env.USERNAME_MQ}:${process.env.PASS_MQ}@${process.env.HOST_MQ}`
+            }
+            else
+            {
+                strAddress = "amqp://localhost";
+            }
+        }
 
         const connectionHandler = await this._connect(strAddress);
         this._channel = await connectionHandler.createChannel();
