@@ -11,7 +11,7 @@ class Main
 	static async run()
 	{
 		const publisher = new Publisher();
-		publisher.start();
+		await publisher.start();
 	}
 }
 
