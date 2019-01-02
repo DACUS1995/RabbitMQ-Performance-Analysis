@@ -12,7 +12,10 @@ class Main
 	static async run()
 	{
 		const publisher = new Publisher();
-		await publisher.start();
+		await publisher.start({
+			strAddress: "amqp://localhost",
+			nIntervalMiliSec: process.argv[2]
+		});
 	}
 }
 
