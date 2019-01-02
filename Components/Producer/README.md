@@ -1,6 +1,8 @@
 Requirements:
 * Node.js ^10
 
+---
+
 ``` bash
 # install dependencies
 npm install
