@@ -59,7 +59,11 @@ class Publisher
 		});
 		this._channel = await connectionHandler.createChannel();
 
-		this._channel.assertQueue(strQueueName);
+		const objQueueOptions = {
+			durable: false
+		};
+
+		this._channel.assertQueue(strQueueName, objQueueOptions);
 		this._arrQueues.push(strQueueName);
 
 
