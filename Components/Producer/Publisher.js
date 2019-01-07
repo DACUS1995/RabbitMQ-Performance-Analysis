@@ -69,15 +69,15 @@ class Publisher
 
 		while(true)
 		{
-			await new Promise((resolve, reject) => {
-				setTimeout(() => {
-					resolve();
-				}, nIntervalMiliSec);
-			})
+			// await new Promise((resolve, reject) => {
+			// 	setTimeout(() => {
+			// 		resolve();
+			// 	}, nIntervalMiliSec);
+			// })
 
-			this._addToQueue(Publisher.DUMMY_MESSAGE);
+			await this._addToQueue(Publisher.DUMMY_MESSAGE);
 
-			if(nMessagesCount !== undefined)
+			if(nMessagesCount !== undefined && typeof nMessagesCount === "number")
 			{
 				nMessagesCount--;
 				if(nMessagesCount === 0)
@@ -97,7 +97,15 @@ class Publisher
 
 		try
 		{
-			await this._channel.sendToQueue(strQueueName, Buffer.from(strSerializedMessageBody));
+			const ok = this._channel.sendToQueue(strQueueName, Buffer.from(strSerializedMessageBody));
+			console.log(ok);
+
+			if(ok === false)
+			{
+				await new Promise((resolve, reject) => {
+					this._channel.on("drain", resolve);
+				});
+			}
 		}
 		catch(error)
 		{
