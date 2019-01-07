@@ -65,13 +65,12 @@ class Publisher
 
 		this._channel.assertQueue(strQueueName, objQueueOptions);
 		this._arrQueues.push(strQueueName);
-
+		console.log("Starting to publish");
 
 		while(true)
 		{
 			await new Promise((resolve, reject) => {
 				setTimeout(() => {
-					console.log("Tick");
 					resolve();
 				}, nIntervalMiliSec);
 			})
